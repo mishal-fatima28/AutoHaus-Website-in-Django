@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Sell Car
+{% endblock %}
+{% block content %}
+<div class="text-center">
+    <h2 class="ui-title-block">Sell Your Car</h2>
+    <div class="ui-subtitle-block">Tempor incididunt labore dolore magna aliqua sed ipsum</div>
+    <div class="ui-decor"></div>
+</div>
+{% for message in messages %}
+<div class="alert alert-block alert-5">
+    <button class="close" data-dismiss="alert">
+        <i class="close-icon fa fa-times"></i>
+    </button>
+    <div class="alert-icon">
+        <i class="icon fa fa-check"></i>
+    </div>
+    <div class="alert__inner">
+        <h3 class="alert-title">{{message}}</h3>
+
+    </div>
+</div>
+{% endfor %}
+<div class="typography-section typography-section-border">
+    <div class="container pt-3" style="max-width: 60%; margin-left: 30%; margin-top: -50px;">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-md-9">
+                        <form class="ui-form-3" id="contactForm" method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="img">Select Car image:</label>
+                                    <input type="file" id="img" name="img" accept="image/*">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control" id="user-name" type="text" name="name" placeholder="Your Name" required="required" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" id="user-phone" type="tel" name="phone" placeholder="Phone" required="required" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control" id="user-email" type="email" name="email" placeholder="Email" required="required" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" name="address" placeholder="Address" required="required" />
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" name="cartype" placeholder="Car Type" required="required" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" name="carname" placeholder="Car Name" required="required" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" name="company" placeholder="Car Company" required="required" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" name="model" placeholder="Car Model" required="required" />
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" name="mileage" placeholder="Mileage" required="required" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" name="kmdriven" placeholder="KM Driven" required="required" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" name="color" placeholder="Color" required="required" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" name="price" placeholder="Price" required="required" />
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" name="mileage" placeholder="Mileage" required="required" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" name="description" placeholder="Description" required="required" style="height: 100px; width: 650px;" />
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <button class="btn btn-primary">Submit Request</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

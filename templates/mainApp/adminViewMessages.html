@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Admin View Messages
+{% endblock %}
+{% block content %}
+
+
+<div class="typography-section typography-section-border">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="typography-title">Messages</h2>
+                <div class="table-container">
+                    <table class="table table_primary">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Subject</th>
+                                <th>Message</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for message in allmessages %}
+                            <tr>
+                                <td>{{message.id}}</td>
+                                <td>{{message.name}}</td>
+                                <td>{{message.email}}</td>
+                                <td>{{message.phone}}</td>
+                                <td>{{message.subject}}</td>
+                                <td>{{message.message}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

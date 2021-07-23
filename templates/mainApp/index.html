@@ -1,0 +1,191 @@
+{% extends 'base.html' %}
+{% load static %}
+{% static "media/addcars" as baseUrl %}
+{% block title %}
+Home
+{% endblock %}
+{% block content %}
+<!--STARTING START-->
+<div class="info-group block-table block-table_md">
+    <div class="info-group__section col-md-6">
+        <section class="b-info b-info_mod-a area-bg area-bg_op_80 area-bg_prim parallax" style="background-image: url({% static 'media/content/bg/bg-4.jpg' %})">
+            <div class="area-bg__inner">
+                <h2 class="b-info__title">Are You Looking<strong class="b-info__title_lg">TO BUY A CAR?</strong></h2>
+                <div class="b-info__desc">Buckingham Autohaus provides you with the best collection of cars. Get a look at our stock and contact us before its too late!</div><a class="btn btn-white" href="#">search your car</a>
+            </div>
+        </section>
+    </div>
+    <div class="info-group__section col-md-6">
+        <section class="b-info b-info_mod-b area-bg area-bg_op_80 area-bg_dark-2 parallax" style="background-image: url({% static 'media/content/bg/bg-3.jpg' %})">
+            <div class="area-bg__inner">
+                <h2 class="b-info__title">Do You Want To<strong class="b-info__title_lg">SELL YOUR CAR?</strong></h2>
+                <div class="b-info__desc">Are you tired of your old vehicle and want a change? Well, you are at the right place. Add your car to our website for selling and buy a new one with enhanced features with reasonable prices!</div><a class="btn btn-white" href="{% url 'mainApp-sellcar' %}">let us know</a>
+            </div>
+        </section>
+    </div>
+</div>
+<br /><br />
+<!--STARTING ENDS-->
+<!--STOCK START-->
+<div class="text-center">
+    <h2 class="ui-title-block">Our Stock</h2>
+    <div class="ui-subtitle-block">We Aim to provide the best Quality</div>
+    <div class="ui-decor"></div>
+</div>
+<div class="container">
+    <div class="row">
+        
+            <main class="l-main-content">
+               
+                <div class="goods-group-2 list-goods list-goods_th">
+                   {% for car in allCars%}
+                    <section class="b-goods-1 b-goods-1_mod-a">
+                        <div class="row">
+                            <div class="b-goods-1__img">
+                                <a class="js-zoom-images" href="{{car.image.url}}">
+                                    <img class="img-responsive" src="{{car.image.url}}" alt="foto" />
+                                </a>
+                            </div>
+                            <div class="b-goods-1__inner">
+                                <div class="b-goods-1__header">
+
+                                    <h2 class="b-goods-1__name"><a>{{car.carCompany}} {{car.carName}}</a></h2>
+                                </div>
+                                <span class="b-goods-1__price_th text-primary visible-th">
+                                    ${{car.price}}<a class="b-goods-1__choose" href="listing-1.html"></a>
+                                </span><a class="btn btn-primary btn-xs" href="{% url 'mainApp-cardetails' car.id %}">View Details</a>
+                                {% if user.is_authenticated %}
+                                <a class="btn btn-primary btn-xs" href="{% url 'mainApp-delcar' car.id %}">Delete Car</a>
+                                {% endif %}
+                                <div class="b-goods-1__section">
+                                    <h3 class="b-goods-1__title" data-toggle="collapse" data-target="#desc-3">Highlights</h3>
+                                    <div class="collapse in" id="desc-3">
+                                        <ul class="b-goods-1__desc list-unstyled">
+                                            <li class="b-goods-1__desc-item">{{car.kmDriven}} km</li>
+                                            <li class="b-goods-1__desc-item"><span class="hidden-th">Model:</span> {{car.carModel}}</li>
+                                            <li class="b-goods-1__desc-item">{{car.mileage}} km/ltr</li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+                   {% endfor %}
+                    <!-- end .b-goods-1-->
+                </div>
+                <!-- end .goods-group-2-->
+            </main>
+            <!-- end .l-main-content-->
+        </div>
+    </div>
+
+<!--STOCK ENDS-->
+<!-- MINI WE OFFER STARTS-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="section-advantages-1">
+                <section class="b-advantages-1">
+                    <i class="b-advantages-1__icon flaticon-gearbox"></i>
+                    <h3 class="b-advantages-1__title">Largest Dealership of Cars</h3>
+                    <div class="b-advantages-1__info">Buckingham Autohaus offers the best quality Cars with wide range of variety. We boast of having cars of almost every model and company which makes us unique.</div><span class="ui-decor-2"></span>
+                </section>
+                <!-- end .b-advantages-->
+                <section class="b-advantages-1 active">
+                    <i class="b-advantages-1__icon flaticon-steering-wheel"></i>
+                    <h3 class="b-advantages-1__title">We Offers Lower Cars Prices</h3>
+                    <div class="b-advantages-1__info">With so much to offer feature wise, we offer lowest prices possible. Customer's demand is all we care about, that is why, provision of best quality in reasonable price range is made possible at Buckingham Autohaus.</div><span class="ui-decor-2"></span>
+                </section>
+                <!-- end .b-advantages-->
+                <section class="b-advantages-1">
+                    <i class="b-advantages-1__icon flaticon-wrench"></i>
+                    <h3 class="b-advantages-1__title">Multipoint Safety Checks</h3>
+                    <div class="b-advantages-1__info">We provide multipoint safety checks for a car before handing it over to you so that you can enjoy a smooth, safe ride and get away from the troubles of car broke down and mechanics.</div><span class="ui-decor-2"></span>
+                </section>
+                <!-- end .b-advantages-->
+            </div>
+            <!-- end .section-advantages-1-->
+        </div>
+    </div>
+</div>
+<!-- MINI WE OFFER ENDS-->
+
+<!--WE OFFER STARTS-->
+<section class="section-advantages-2 section-dark area-bg area-bg_dark parallax" style="background-image: url({% static 'media/content/bg/bg-1.jpg' %})">
+    <div class="area-bg__inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="text-center">
+                        <h2 class="ui-title-block">What We Offer</h2>
+                        <div class="ui-subtitle-block">We will offer these services if you choose us</div>
+                        <div class="ui-decor"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <section class="b-advantages-2">
+                        <i class="b-advantages-2__icon flaticon-wheel-alignment"></i>
+                        <h3 class="b-advantages-2__title">Smooth<strong>Ride</strong></h3>
+                        <div class="b-advantages-2__info">Cars you buy from us will give you an experience of a lifetime. With sound tires and well balanced shafts, you will have bumps free ride.</div><span class="ui-decor-2"></span>
+                    </section>
+                    <!-- end .b-advantages-->
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <section class="b-advantages-2">
+                        <i class="b-advantages-2__icon flaticon-gearstick"></i>
+                        <h3 class="b-advantages-2__title">Engine<strong>Reliability</strong></h3>
+                        <div class="b-advantages-2__info">Our cars have reliable parts which lasts long. We provide cars with well examined engines and trouble free constituent elements.</div><span class="ui-decor-2"></span>
+                    </section>
+                    <!-- end .b-advantages-->
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <section class="b-advantages-2">
+                        <i class="b-advantages-2__icon flaticon-painting"></i>
+                        <h3 class="b-advantages-2__title">Variety of<strong>Colors</strong></h3>
+                        <div class="b-advantages-2__info">Buckingham Autohaus provides you with multiple colors of the same model which helps in the selection of your dream car.</div><span class="ui-decor-2"></span>
+                    </section>
+                    <!-- end .b-advantages-->
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <section class="b-advantages-2">
+                        <i class="b-advantages-2__icon flaticon-inspection"></i>
+                        <h3 class="b-advantages-2__title">Security of<strong>Paper Work</strong></h3>
+                        <div class="b-advantages-2__info">Buying from us means you will be released from all the tension of paper work. We will manage everything for you.</div><span class="ui-decor-2"></span>
+                    </section>
+                    <!-- end .b-advantages-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--WE OFFER ENDS-->
+<!--NUMBERING STARTS-->
+<div class="section-default">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <ul class="b-progress-list js-progress-list list-unstyled">
+                    <li class="b-progress-list__item clearfix">
+                        <span class="b-progress-list__percent js-chart" data-percent="3874"><span class="js-percent"></span><span></span></span><span class="b-progress-list__name">Vehicles Stock</span>
+                    </li>
+                    <li class="b-progress-list__item clearfix">
+                        <span class="b-progress-list__percent js-chart" data-percent="299"><span class="js-percent"></span><span>+</span></span><span class="b-progress-list__name">dealers served</span>
+                    </li>
+                    <li class="b-progress-list__item clearfix">
+                        <span class="b-progress-list__percent js-chart" data-percent="6403"><span class="js-percent"></span><span></span></span><span class="b-progress-list__name">Happy Customers</span>
+                    </li>
+                    <li class="b-progress-list__item clearfix">
+                        <span class="b-progress-list__percent js-chart" data-percent="1450+"><span class="js-percent"></span><span>+</span></span><span class="b-progress-list__name">vehicles on sale</span>
+                    </li>
+                </ul>
+                <!-- end .b-progress-->
+            </div>
+        </div>
+    </div>
+</div>
+<!--NUMBERING ENDS-->
+        {% endblock %}

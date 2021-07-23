@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Admin View Cars
+{% endblock %}
+{% block content %}
+<div class="text-center">
+    <h2 class="ui-title-block">Sellers Submitted These Cars</h2>
+    <div class="ui-subtitle-block"></div>
+    <div class="ui-decor"></div>
+</div>
+
+<div class="container">
+    <div class="row">
+
+        <main class="l-main-content">
+
+            <div class="goods-group-2 list-goods list-goods_th">
+                {% for car in sellerCars%}
+                <section class="b-goods-1 b-goods-1_mod-a">
+                    <div class="row">
+                        <div class="b-goods-1__img">
+                            <a class="js-zoom-images" href="{{car.image.url}}">
+                                <img class="img-responsive" src="{{car.image.url}}" alt="foto" />
+                            </a>
+                        </div>
+                        <div class="b-goods-1__inner">
+                            <div class="b-goods-1__header">
+
+                                <h2 class="b-goods-1__name"><a href="#">{{car.carCompany}} {{car.carName}}</a></h2>
+                            </div>
+                            <div class="b-goods-1__header">
+
+
+                                <h4 class="b-goods-1__name"><a href="#"> {{car.email}}</a></h4>
+                            </div>
+                            <div class="b-goods-1__info">
+                                {{car.description}}
+
+                            </div><span class="b-goods-1__price_th text-primary visible-th">
+                                ${{car.price}}<a class="b-goods-1__choose" href="listing-1.html"></a>
+                            </span>
+                            {% if user.is_authenticated %}
+                            <a class="btn btn-primary btn-xs" href="{% url 'mainApp-delcustcar' car.id %}">Delete Car</a>
+                            {% endif %}
+
+                            <div class="b-goods-1__section">
+                                <h3 class="b-goods-1__title" data-toggle="collapse" data-target="#desc-3">Highlights</h3>
+                                <div class="collapse in" id="desc-3">
+                                    <ul class="b-goods-1__desc list-unstyled">
+                                        <li class="b-goods-1__desc-item">{{car.kmDriven}} km</li>
+                                        <li class="b-goods-1__desc-item"><span class="hidden-th">Model:</span> {{car.carModel}}</li>
+                                        <li class="b-goods-1__desc-item">{{car.mileage}} km/ltr</li>
+
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+                {% endfor %}
+                <!-- end .b-goods-1-->
+            </div>
+            <!-- end .goods-group-2-->
+        </main>
+        <!-- end .l-main-content-->
+    </div>
+</div>
+
+
+{% endblock %}

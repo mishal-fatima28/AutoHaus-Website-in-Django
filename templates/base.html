@@ -1,0 +1,355 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>BA - {% block title %}{% endblock %}</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="HandheldFriendly" content="true" />
+    <link rel="stylesheet" href="{% static 'css/master.css' %}" />
+    <!-- SWITCHER-->
+    <link href="{% static 'plugins/switcher/css/switcher.css' %}" rel="stylesheet" id="switcher-css" />
+    <link href="{% static 'plugins/switcher/css/color1.css' %}" rel="alternate stylesheet" title="color1" />
+    <link href="{% static 'plugins/switcher/css/color2.css' %}" rel="alternate stylesheet" title="color2" />
+    <link href="{% static 'plugins/switcher/css/color3.css' %}" rel="alternate stylesheet" title="color3" />
+    <link href="{% static 'plugins/switcher/css/color4.css' %}" rel="alternate stylesheet" title="color4" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+   
+</head>
+
+<body>
+    <!--HEADER START-->
+    <!-- Loader-->
+    <div id="page-preloader">
+        <span class="spinner border-t_second_b border-t_prim_a"></span>
+    </div>
+    <!-- Loader end-->
+    
+    <!-- MOBILE MENU-->
+    <div data-off-canvas="mobile-slidebar left overlay">
+        <a class="navbar-brand scroll" href="home.html">
+            <img class="normal-logo img-resonsive visible-xs visible-sm" src="{% static 'media/general/logo-final.png' %}" alt="logo" />
+            <img class="scroll-logo img-resonsive hidden-xs hidden-sm" src="{% static 'media/general/logo-final.png' %}" alt="logo" />
+       
+        <div class="header-navibox-3">
+            <a class="btn btn-primary" href="{% url 'mainApp-adminlogin' %}" style="margin-right: 10px;">admin</a>
+        </div>
+        <ul class="nav navbar-nav">
+
+            <li>
+                <a href="{% url 'mainApp-index' %}">Home</a>
+
+            </li>
+            
+            <li>
+                <a href="#">Our Stock</a>
+            </li>
+            
+            <li>
+                <a href="{% url 'mainApp-contact' %}">Contact Us</b></a>
+
+            </li>
+            {% if user.is_authenticated %}
+            <li>
+                <a href="{% url 'mainApp-adminlogout' %}">Logout</a>
+            </li>
+            {% else %}
+            <li>
+                <a href="{% url 'mainApp-sellcar' %}">sell car</a>
+            </li>
+            {% endif %}
+            <li>
+                <a href="{% url 'mainApp-adminlogin' %}" style="margin-right: 10px;">admin</a>
+            </li>
+
+        </ul>
+    </div>
+    <div class="l-theme animated-css" data-header="sticky" data-header-top="200" data-canvas="container">
+        <!-- Start Switcher-->
+        <div class="switcher-wrapper">
+            <div class="demo_changer">
+                <div class="demo-icon text-primary">
+                    <i class="fa fa-cog fa-spin fa-2x"></i>
+                </div>
+                <div class="form_holder">
+                    <div class="predefined_styles">
+                        <div class="skin-theme-switcher">
+                            <h4>Color</h4>
+                            <a class="styleswitch" href="javascript:void(0);" data-switchcolor="color1" style="background-color:#d01818"></a>
+                            <a class="styleswitch" href="javascript:void(0);" data-switchcolor="color2" style="background-color:#FFAC3A"></a>
+                            <a class="styleswitch" href="javascript:void(0);" data-switchcolor="color3" style="background-color:#28af0f"></a>
+                            <a class="styleswitch" href="javascript:void(0);" data-switchcolor="color4" style="background-color:#e425e9"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end switcher-->
+        <!--WEB NAVBAR STARTS-->  
+        <header class="header header-boxed-width navbar-fixed-top header-background-white header-color-black header-topbar-dark header-logo-black header-topbarbox-1-left header-topbarbox-2-right header-navibox-1-left header-navibox-2-right header-navibox-3-right header-navibox-4-right">
+            <div class="container container-boxed-width">
+                <div class="top-bar">
+                    <div class="container">
+                        <div class="header-topbarbox-1">
+                            <ul>
+                                <li><i class="icon fa fa-clock-o"></i> Mon - Fri : 1100am to 0500pm</li>
+                                <li>
+                                    <i class="icon fa fa-phone"></i><a href="tel:+44 7547 270961 ">+44 7547 270961</a>
+                                </li>
+                                <li>
+                                    <i class="icon fa fa-envelope-o"></i><a href="mailto:info@buckinghamautohaus.com">info@buckinghamautohaus.com</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="header-topbarbox-2">
+                            <ul class="social-links">
+                                <li>
+                                    <a href="/" target="_blank"><i class="social_icons fa fa-twitter"></i></a>
+                                </li>
+                                <li>
+                                    <a href="/" target="_blank"><i class="social_icons fa fa-facebook"></i></a>
+                                </li>
+                                <li>
+                                    <a href="/" target="_blank"><i class="social_icons fa fa-linkedin"></i></a>
+                                </li>
+                                <li class="li-last">
+                                    <a href="/" target="_blank"><i class="social_icons fa fa-instagram"></i></a>
+                                </li>
+                                <li>
+                                    <a href="/" target="_blank"><i class="social_icons fa fa-youtube-play"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <nav class="navbar" id="nav">
+                    <div class="container">
+                        <div class="header-navibox-1">
+                            <!-- Mobile Trigger Start-->
+                            <button class="menu-mobile-button visible-xs-block js-toggle-mobile-slidebar toggle-menu-button">
+                                <i class="toggle-menu-button-icon"><span></span><span></span><span></span><span></span><span></span><span></span></i>
+                            </button>
+                            <!-- Mobile Trigger End-->
+                            <a class="navbar-brand scroll" href="{% url 'mainApp-index' %}">
+                                <img class="normal-logo img-responsive" src="{% static 'media/general/logo-final.png' %}" alt="logo" />
+                                <img class="scroll-logo hidden-xs img-responsive" src="{% static 'media/general/logo-final.png' %}" alt="logo" />
+                            </a>
+                        </div>
+                        {% if user.is_authenticated %}
+                        <div class="header-navibox-3" style="margin-left: 10px;">
+                            <a class="btn btn-primary" href="{% url 'mainApp-adminlogout' %}">Logout</a>
+                        </div>
+
+
+                        {% else %}
+                        <div class="header-navibox-3" >
+                            <a class="btn btn-primary" href="{% url 'mainApp-sellcar' %}">sell car</a>
+                        </div>
+                        {% endif %}
+                        <div class="header-navibox-3">
+                            <a class="btn btn-primary" href="{% url 'mainApp-adminlogin' %}" style="margin-right: 10px;">admin</a>
+                        </div>
+
+
+
+                        <div class="header-navibox-2">
+                            <ul class="yamm main-menu nav navbar-nav">
+                                <li>
+                                    <a href="{% url 'mainApp-index' %}">Home<b></b></a>
+
+                                </li>
+                                
+                                <li>
+                                    <a href="#">Our Stock</a>
+                                </li>
+                                
+                                <li>
+                                    <a href="{% url 'mainApp-contact' %}">Contact Us</a>
+
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!--WEB NAVBAR ENDS-->
+        <!--END HEADER-->
+        <div class="main-slider main-slider-1">
+            
+        </div>
+        {% block content %}
+        {% endblock %}
+
+        <!--START FOOTER-->
+        <footer class="footer area-bg">
+            <div class="area-bg__inner">
+                <div class="footer__main">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="footer-section">
+                                    <a class="footer__logo" href="{% url 'mainApp-index' %}">
+                                        <img class="img-responsive" src="{% static 'media/general/logo-final.png' %}" alt="Logo" />
+                                    </a>
+                                    <div class="footer__info">We provide best solutions to your car problems. For more information, contact us via email or phone, we are available 24/7.</div>
+                                    <ul class="social-net list-inline">
+                                        <li class="social-net__item">
+                                            <a class="social-net__link text-primary_h" href="#"><i class="icon fa fa-facebook"></i></a>
+                                        </li>
+                                        <li class="social-net__item">
+                                            <a class="social-net__link text-primary_h" href="#"><i class="icon fa fa-twitter"></i></a>
+                                        </li>
+                                        <li class="social-net__item">
+                                            <a class="social-net__link text-primary_h" href="#"><i class="icon fa fa-linkedin"></i></a>
+                                        </li>
+                                        <li class="social-net__item">
+                                            <a class="social-net__link text-primary_h" href="#"><i class="icon fa fa-instagram"></i></a>
+                                        </li>
+                                        <li class="social-net__item">
+                                            <a class="social-net__link text-primary_h" href="#"><i class="icon fa fa-youtube-play"></i></a>
+                                        </li>
+                                    </ul>
+                                    <!-- end .social-list-->
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <section class="footer-section footer-section_list-columns">
+                                    <h3 class="footer-section__title ui-title-inner">Top Brands</h3>
+                                    <ul class="footer-list footer-list_columns list-unstyled">
+                                        <li class="footer-list__item">
+                                            <a class="footer-list__link" href="#">Alfa Romeo</a>
+                                        </li>
+                                        <li class="footer-list__item">
+                                            <a class="footer-list__link" href="#">Ferrari</a>
+                                        </li>
+                                        <li class="footer-list__item">
+                                            <a class="footer-list__link" href="#">BMW Series</a>
+                                        </li>
+                                        <li class="footer-list__item">
+                                            <a class="footer-list__link" href="#">Mercedes</a>
+                                        </li>
+                                        <li class="footer-list__item">
+                                            <a class="footer-list__link" href="#">Aston Martin</a>
+                                        </li>
+                                        <li class="footer-list__item">
+                                            <a class="footer-list__link" href="#">Toyota</a>
+                                        </li>
+                                        <li class="footer-list__item">
+                                            <a class="footer-list__link" href="#">Opel</a>
+                                        </li>
+                                        <li class="footer-list__item">
+                                            <a class="footer-list__link" href="#">Land Rover</a>
+                                        </li>
+                                        <li class="footer-list__item">
+                                            <a class="footer-list__link" href="#">Mclaren</a>
+                                        </li>
+                                        <li class="footer-list__item">
+                                            <a class="footer-list__link" href="#">Peogeot</a>
+                                        </li>
+                                        <li class="footer-list__item">
+                                            <a class="footer-list__link" href="#">Renault</a>
+                                        </li>
+                                    </ul>
+                                </section>
+                            </div>
+                            <div class="col-md-2">
+                                <section class="footer-section footer-section_list-one">
+                                    <h3 class="footer-section__title ui-title-inner">Categories</h3>
+                                    <ul class="footer-list list-unstyled">
+                                        <li class="footer-list__item">
+                                            <a class="footer-list__link" href="#">Trucks</a>
+                                        </li>
+                                        <li class="footer-list__item">
+                                            <a class="footer-list__link" href="#">Sports Cars</a>
+                                        </li>
+                                        <li class="footer-list__item">
+                                            <a class="footer-list__link" href="#">Crossovers</a>
+                                        </li>
+                                        <li class="footer-list__item">
+                                            <a class="footer-list__link" href="#">Hybrid Cars</a>
+                                        </li>
+                                        <li class="footer-list__item">
+                                            <a class="footer-list__link" href="#">Hybrid SUVs</a>
+                                        </li>
+                                        <li class="footer-list__item">
+                                            <a class="footer-list__link" href="#">Future Cars</a>
+                                        </li>
+                                    </ul>
+                                </section>
+                            </div>
+                            <div class="col-md-3">
+                                <section class="footer-section">
+                                    <h3 class="footer-section__title ui-title-inner">Address Information</h3>
+                                    <div class="footer-contact footer-contact_lg">
+                                        Call us<span class="text-primary"> +44 7547 270961</span>
+                                    </div>
+                                    <div class="footer-contact"><i class="icon icon-xs fa fa-envelope-o"></i>info@buckinghamautohaus.com</div>
+                                    <div class="footer-contact"><i class="icon icon-lg fa fa-map-marker"></i>Wycombe Rd, Stokenchurch, High Wycombe HP14 3XB, United Kingdom</div>
+                                    <div class="footer-contact"><i class="icon fa fa-clock-o"></i>Mon - Fri : 1100am to 0500pm</div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                Copyrights 2020<a class="copyright__brand" href="{% url 'mainApp-index' %}"> BuckinghamAutohaus</a> All Rights Reserved<a class="copyright__link" href="#">Privacy Policy</a><a class="copyright__link" href="#">Terms & Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </div><span class="btn-up" id="toTop">TOP</span>
+            </div>
+        </footer>
+        <!-- .footer-->
+    </div>
+    <!-- end layout-theme-->
+    <!-- ++++++++++++-->
+    <!-- MAIN SCRIPTS-->
+    <!-- ++++++++++++-->
+    <script src="{% static 'libs/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'libs/jquery-migrate-1.2.1.js' %}"></script>
+    <!-- Bootstrap-->
+    <script src="{% static 'libs/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- User customization-->
+    <script src="{% static 'js/custom.js' %}"></script>
+    <!-- Headers scripts-->
+    <script src="{% static 'plugins/headers/slidebar.js' %}"></script>
+    <script src="{% static 'plugins/headers/header.js' %}"></script>
+    <!-- Color scheme-->
+    <script src="{% static 'plugins/switcher/js/dmss.js' %}"></script>
+    <!-- Select customization & Color scheme-->
+    <script src="{% static 'plugins/bootstrap-select/js/bootstrap-select.min.js' %}"></script>
+    <!-- Slider-->
+    <script src="{% static 'plugins/owl-carousel/owl.carousel.min.js' %}"></script>
+    <!-- Pop-up window-->
+    <script src="{% static 'plugins/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
+    <!-- Mail scripts-->
+    <script src="{% static 'plugins/jqBootstrapValidation.js' %}"></script>
+    <script src="{% static 'plugins/contact_me.js' %}"></script>
+    <!-- Filter and sorting images-->
+    <script src="{% static 'plugins/isotope/isotope.pkgd.min.js' %}"></script>
+    <script src="assets/plugins/isotope/imagesLoaded.js"></script>
+    <!-- Progress numbers-->
+    <script src="{% static 'plugins/rendro-easy-pie-chart/jquery.easypiechart.min.js' %}"></script>
+    <script src="{% static 'plugins/rendro-easy-pie-chart/waypoints.min.js' %}"></script>
+    <!-- NoUiSlider-->
+    <script src="{% static 'plugins/noUiSlider/nouislider.min.js' %}"></script>
+    <script src="{% static 'plugins/noUiSlider/wNumb.js' %}"></script>
+    <!-- Animations-->
+    <script src="{% static 'plugins/scrollreveal/scrollreveal.min.js' %}"></script>
+    <!-- Main slider-->
+    <script src="assets/plugins/slider-pro/jquery.sliderPro.min.js"></script>
+    <!-- User map-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqQ_bBw186KJnMcRByvn5ffZueg88wp1E"></script>
+    <!-- Maps customization-->
+    <script src="{% static 'js/map-custom.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Car Details
+{% endblock %}
+{% block content %}
+<div class="section-title-page area-bg area-bg_dark area-bg_op_70">
+    <div class="area-bg__inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1 class="b-title-page bg-primary_a">cars details</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end .b-title-page-->
+<div class="bg-grey">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="{% url 'mainApp-index' %}"><i class="icon fa fa-home"></i></a>
+                    </li>
+
+                    <li class="active">Car Details</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end breadcrumb-->
+<main class="l-main-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <section class="b-car-details">
+                    <div class="b-car-details__header">
+                        <h2 class="b-car-details__title">{{specCar.carModel}} {{specCar.carCompany}} {{specCar.carName}}</h2>
+
+                        <div class="b-car-details__address"><i class="icon fa fa-map-marker text-primary"></i> Buckingham Autohaus, Buckingham, UK</div>
+
+                    </div>
+                    <div class="slider-car-details slider-pro" id="slider-car-details">
+
+                        <div class="sp-thumbnails">
+                            <div class="sp-thumbnail">
+                                <img class="img-responsive" src="{{specCar.image.url}}" alt="img" />
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- end .b-thumb-slider-->
+                    <div class="b-car-details__section">
+                        <h3 class="b-car-details__section-title ui-title-inner">Car Overview</h3>
+
+                        <p>
+                            {{specCar.description}}
+                        </p>
+                    </div>
+
+                </section>
+            </div>
+            <div class="col-md-4">
+                <aside class="l-sidebar-2">
+                    <div class="b-car-info">
+                        <div class="b-car-info__price">
+                            ${{specCar.price}}
+                        </div>
+                        <dl class="b-car-info__desc dl-horizontal bg-grey">
+                            <dt class="b-car-info__desc-dt">type</dt>
+                            <dd class="b-car-info__desc-dd">{{specCar.carType}}</dd>
+                            <dt class="b-car-info__desc-dt">company</dt>
+                            <dd class="b-car-info__desc-dd">{{specCar.carCompany}}</dd>
+                            <dt class="b-car-info__desc-dt">model</dt>
+                            <dd class="b-car-info__desc-dd">{{specCar.carModel}}</dd>
+                            <dt class="b-car-info__desc-dt">mileage</dt>
+                            <dd class="b-car-info__desc-dd">{{specCar.mileage}} km/ltr</dd>
+                            <dt class="b-car-info__desc-dt">colors</dt>
+                            <dd class="b-car-info__desc-dd">{{specCar.color}}</dd>
+
+                        </dl>
+                        <div class="b-car-info__item">
+                            <span class="b-car-info__item-name"><i class="icon flaticon-fuel"></i> KM Driven</span>
+                            <div class="b-car-info__item-inner">
+
+                                <span class="b-car-info__item-info_lg">{{specCar.kmDriven}} KM</span>
+
+
+                            </div>
+                        </div>
+                        <div class="b-car-info__item">
+                            <span class="b-car-info__item-name"><i class="icon flaticon-car"></i> Vehicle Demand</span>
+                            <div class="b-car-info__item-inner">
+                                <span class="b-car-info__item-info">HIGH</span>
+                            </div>
+                        </div>
+                        <div class="b-bnr-2">
+                            <div class="b-bnr-2__icon flaticon-smartphone"></div>
+                            <div class="b-bnr-2__inner">
+                                <div class="b-bnr-2__title">Call Dealer</div>
+                                <div class="b-bnr-2__info">1-234-567-89</div>
+                            </div>
+                        </div>
+                        <!-- end .b-banner-->
+                        <!-- end .b-calculator-->
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</main>
+    {% endblock %}

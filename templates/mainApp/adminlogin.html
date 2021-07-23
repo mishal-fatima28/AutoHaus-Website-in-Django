@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Admin Login
+{% endblock %}
+{% block content %}
+
+
+<section class="section-type-1 container pt-2" style="max-width: 60%; margin-left: 35%;">
+    <h2 class="ui-title-block-2">Admin Login</h2>
+    <div class="ui-subtitle-block"></div>
+    <div class="ui-decor"></div>
+    <div id="success"></div>
+    <form class="b-form-checkup ui-form-3" method="post">
+        {% csrf_token %}
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="username" placeholder="Username" required="required" />
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" name="password" placeholder="Password" required="required" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+
+
+            </div>
+        </div>
+        <button class="btn btn-primary">Login</button>
+    </form>
+</section>
+
+
+
+
+{% endblock %}
+
